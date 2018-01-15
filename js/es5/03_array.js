@@ -21,20 +21,24 @@ console.log(typeof books);
 
 //3. 맨 앞쪽에 이것이자바다, 40000, 김상형, 5를 추가하시오 (힌트: unshift)
 books.unshift({title:"이것이자바다", price:40000, author:"김상형", order:5});
+console.log('No. 3');
 console.log(books);
 console.log('==================================');
 //4. 맨 앞쪽에 추가한것을 지우시오,
 books.shift();
+console.log('No. 4');
 console.log(books);
 console.log('==================================');
 
 
 // 5. 맨 뒷쪽에 추가하시오. (힌트: push)
 books.push({title:"이것이자바다", price:40000, author:"김상형", order:5});
+console.log('No. 5');
 console.log(books);
 console.log('==================================');
 
 // 6. 맨 뒤쪽에 추가한것을 지우시오,
+console.log('No. 6');
 books.pop();
 console.log(books);
 console.log('==================================');
@@ -42,24 +46,72 @@ console.log('==================================');
 
 
 // 7. 흥부놀부와 자바의정석 사이에 삽입하시오. (힌트: splice)
+console.log('No. 7');
 books.splice(2, 0, {title:"이것이자바다", price:40000, author:"김상형", order:5});
 console.log(books);
 console.log('==================================');
 
 // 8. 방금 삽입한거를 삭제하시오.
-// Test
+console.log('No. 8');
+books.splice(0, 1);
+console.log(books);
+console.log('==================================');
+
 
 
 // 9. 원본 배열에서 자바의 정석을 찾아서 저자를 남궁성으로 바꾸시오(힌트: forEach)
+console.log('No. 9');
+books.forEach(function(item, index) {
+  if (item.title == '자바의정석') {
+    item.author = '남궁석';
+  }
+});
+
+console.log(books);
+console.log('==================================');
 
 
 // 10. 책의 총 비용을 출력하시오
+console.log('No. 10');
+var priceSum = 0;
 
+books.forEach(function(item, index) {
+  priceSum += item.price;
+});
+console.log(priceSum);
+console.log('==================================');
 
 
 // 11. 제목앞에 판매순위를 등수를 붙인 새로운 배열을 생성하시오.(힌트: map)
+console.log('No. 11');
+var newbooks = [];
+var setGrade = function(item, index) {
+  item.grade = index + 1;
+  console.log('item', item);
+  console.log('index', index);
 
+  newbooks.push(item);
+}
+
+books.map(setGrade);
+console.log(newbooks);
+console.log('==================================');
 
 
 // 12. 새로운 배열을 만들되 3등안에 있는것만 따로 만든다. (힌트: filter)
+console.log('No. 12');
+var newbooks = [];
+var setGrade = function(item, index) {
+  if (index < 3) {
+    item.grade = index + 1;
+    console.log('item', item);
+    console.log('index', index);
+
+    newbooks.push(item);
+  }
+}
+
+books.map(setGrade);
+console.log(newbooks);
+console.log('==================================');
 
