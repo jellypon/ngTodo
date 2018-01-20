@@ -13,16 +13,22 @@
 <script>
   var startBtn = document.querySelector('#start');
 
+/*
   Rx.Observable.fromEvent(startBtn, 'click')
     .subscribe((event) => console.log(event));
+*/
 
-/*  Rx.Observable.interval(1000)
-    .subscribe(x => console.log(x));*/
+/*
+  Rx.Observable.interval(1000)
+    .subscribe(x => console.log(x));
+*/
 
   // 버튼을 누를때마다 observable이 여러개 생긴다.
-  /*Rx.Observable.fromEvent(startBtn, 'click')
+/*
+  Rx.Observable.fromEvent(startBtn, 'click')
     .subscribe((event) => Rx.Observable.interval(1000)
-      .subscribe(x => console.log(x)));*/
+      .subscribe(x => console.log(x)));
+*/
 
   // switchMap을 이용해서 flow를 다른 flow로 switch한다.
   // 아래 그림 이해
