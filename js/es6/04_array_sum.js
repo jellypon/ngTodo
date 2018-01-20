@@ -11,3 +11,7 @@ var sum = 0;
 arr.forEach(item => sum += item); // arrow function을 이용한 한줄코딩
 console.log(sum);
 
+//2. reduce 사용 (es6에 새로 추가된 prototype function)
+sum = arr.reduce((prev, curr) => prev + curr);
+
+console.log(sum);

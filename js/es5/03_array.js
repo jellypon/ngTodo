@@ -109,6 +109,8 @@ console.log(books);
 
 // 12. 새로운 배열을 만들되 3등안에 있는것만 따로 만든다. (힌트: filter)
 console.log('No. 12');
+/*
+// 내가한 것
 var newbooks = [];
 var filterGrade = function(item, index) {
   return item.order <= 3;
@@ -117,4 +119,14 @@ var filterGrade = function(item, index) {
 newbooks = books.filter(filterGrade);
 console.log(newbooks);
 console.log('==================================');
+*/
 
+// 강사님
+var newFilter = books.filter(item => {
+  if (item.order <= 3) {
+    return true;
+  }
+});
+
+console.log(newFilter);
+console.log(books);
