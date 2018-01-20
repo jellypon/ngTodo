@@ -84,6 +84,8 @@ console.log('==================================');
 
 // 11. 제목앞에 판매순위를 등수를 붙인 새로운 배열을 생성하시오.(힌트: map)
 console.log('No. 11');
+/*
+// 내가한거
 var newbooks = [];
 var setGrade = function(item, index, array) {
   item.grade = index + 1;
@@ -94,7 +96,16 @@ newbooks = books.map(setGrade);
 console.log(books);
 console.log(newbooks);
 console.log('==================================');
+*/
 
+// 강사님
+var newMap = books.map(function (item) {
+  item.title = item.order + " 등 " + item.title;
+  return item;
+});
+
+console.log(newMap);
+console.log(books);
 
 // 12. 새로운 배열을 만들되 3등안에 있는것만 따로 만든다. (힌트: filter)
 console.log('No. 12');
