@@ -37,6 +37,6 @@ export class AngularComponent implements OnInit {
   addTodo() {
 /*    console.log('addTodo');*/
     this.userService.addTodo(this.newTodo)
-      .subscribe(data => console.log(data));
+      .subscribe((data: TodoVO) => this.todoList.unshift(data));
   }
 }
