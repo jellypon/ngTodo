@@ -13,3 +13,14 @@ new Promise(resolve => {
 }).then(value=>{
     console.log(value);
 });
+
+
+/*
+실행결과
+
+async1
+success
+success
+async2
+
+*/
