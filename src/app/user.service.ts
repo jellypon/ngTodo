@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../environments/environment';
-import {TodoVO} from "./domain/todo.vo";
+import {TodoVO} from './domain/todo.vo';
 
 @Injectable()
 export class UserService {
@@ -23,5 +23,13 @@ export class UserService {
       params,
       {headers: this.headers}
     );
+  }
+
+  removeTodo(todo_id: number) {
+/*
+    return this.http.delete(this.SERVER + '/api/todo?todo_id=' + todo_id);
+*/
+    // es6 문법
+    return this.http.delete(this.SERVER + `/api/todo?todo_id=${todo_id}`);
   }
 }

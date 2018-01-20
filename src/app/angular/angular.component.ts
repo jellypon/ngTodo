@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
 import {TodoVO} from '../domain/todo.vo';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {ResultVO} from "../domain/result.vo";
 
 @Component({
   selector: 'app-angular',
@@ -54,8 +55,17 @@ export class AngularComponent implements OnInit {
   }
 
   // Server에 데이터를 삭제
-  remove(item: TodoVO) {
-
+  remove(item: TodoVO, idx: number) {
+    const result = confirm(item.todo + '을(를) 삭제하시겠습니까?');
+    if (result) {
+      this.userService.removeTodo(item.todo_id)
+        .subscribe((data: ResultVO) => {
+          if (data.result === 0) {
+            // Data 삭제
+            this.todoList.splice(idx, 1);
+          }
+        });
+    }
   }
 
   // 에디터 폼을 Template폼으로 복귀
