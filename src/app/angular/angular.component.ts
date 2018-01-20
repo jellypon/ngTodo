@@ -9,14 +9,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./angular.component.scss'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({opacity: 1, transform: 'translate(0,0)'})),
-      transition('void=>*', [
-        style({opacity: 0, transform: 'translate(-100%, 0}'}),
+      state('in', style({opacity: 1, transform: 'translate(0, 0)'})),
+      transition('void => *', [
+        style({opacity: 0, transform: 'translate(-100%, 0)'}),
         animate(300)
       ]),
     ])
-  ]
-})
+  ]})
 export class AngularComponent implements OnInit {
   todoList: Array<TodoVO>;
   newTodo: TodoVO = new TodoVO();  // 투두 추가를 위한 객체
