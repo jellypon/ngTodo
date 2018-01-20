@@ -39,4 +39,24 @@ export class AngularComponent implements OnInit {
     this.userService.addTodo(this.newTodo)
       .subscribe((data: TodoVO) => this.todoList.unshift(data));
   }
+
+  // Template form을 에디터로 전환
+  save(item: TodoVO) {
+    item.isEdited = true;
+  }
+
+  // Server에 데이터를 삭제
+  remove(item: TodoVO) {
+
+  }
+
+  // 에디터 폼을 Template폼으로 복귀
+  restore (item: TodoVO) {
+    item.isEdited = false;
+  }
+
+  // Server에 데이터 수정
+  modify(item: TodoVO) {
+
+  }
 }
