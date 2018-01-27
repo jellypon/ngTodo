@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 })
 export class WriteComponent implements OnInit {
   news = new NewsVO();
+  fileList: FileList;   // HTML5 기본 API이므로 import 구문 없이 사용 가능
 
   constructor(private adminService: AdminService, private snackBar: MatSnackBar, private router: Router) { }
 
@@ -30,4 +31,39 @@ export class WriteComponent implements OnInit {
         }
       });
   }
+
+  fileChange(event: any) {
+    this.fileList = event.target.files;
+    console.log(this.fileList);
+// show thumbnail
+    const reader = new FileReader();
+    reader.readAsDataURL((this.fileList[0]));
+    reader.onload = () => {
+// this.thumbnailSrc = reader.result;
+      this.imageUpload();
+    };
+  }
+
+  imageUpload() {
+    const formData: FormData = new FormData();
+    if (this.fileList && this.fileList.length > 0) {
+      const file: File = this.fileList[0];
+      formData.append('file', file, file.name);
+    }
+    this.adminService.imageUpload(formData)
+      .subscribe(body => {
+        if (body['result'] === 0) {  // 이미지 경로를 editor에 추가한다.
+          console.log(body['value']);
+          if (this.news.content) {
+            this.news.content += `<img src="http://www.javabrain.kr${body['value']}" style="max-width: 100%;">`;
+          } else {
+            this.news.content = `<img src="http://www.javabrain.kr${body['value']}" style="max-width: 100%;">`;
+          }
+        }
+      });
+  }
+
+  /*imageUpload() {
+
+  }*/
 }
