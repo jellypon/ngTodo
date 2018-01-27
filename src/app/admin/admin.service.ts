@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {NewsVO} from "../domain/news.vo";
 
 @Injectable()
 export class AdminService {
@@ -21,6 +22,11 @@ export class AdminService {
 
   findOneNews(params: number) {
     return this.http.get(this.SERVER + '/api/news?news_id=' + params);
+  }
+
+  addNews(params: NewsVO) {
+    return this.http.post(this.SERVER + '/api/news',
+      params, {headers: this.headers});
   }
 }
 
