@@ -15,9 +15,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { AngularComponent } from './angular/angular.component';
 import {UserService} from './user.service';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { HighlightDirective } from './highlight.directive';
+import { MydatePipe } from './mydate.pipe';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -26,12 +28,15 @@ import {FormsModule} from "@angular/forms";
     IndexComponent,
     HomeComponent,
     JqueryComponent,
-    AngularComponent
+    AngularComponent,
+    HighlightDirective,
+    MydatePipe,
+    LoginComponent
   ],
   imports: [
-    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     FlexLayoutModule,
@@ -40,8 +45,8 @@ import {FormsModule} from "@angular/forms";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
